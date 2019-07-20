@@ -1,0 +1,58 @@
+set(QUAKE2_SOURCE
+    "./cd_win.c"
+    "../client/cl_ents.c"
+    "../client/cl_fx.c"
+    "../client/cl_input.c"
+    "../client/cl_main.c"
+    "../client/cl_parse.c"
+    "../client/cl_parse.c"
+    "../client/cl_tent.c"
+    "../client/cl_view.c"
+    "../client/console.c"
+    "../qcommon/cmd.c"
+    "../qcommon/cmodel.c"
+    "../qcommon/common.c"
+    "../qcommon/crc.c"
+    "../qcommon/cvar.c"
+    "../qcommon/files.c"
+    "./conproc.c"
+    "./in_win.c"
+    "../client/keys.c"
+    "../client/menu.c"
+    "../qcommon/net_chan.c"
+    "./net_wins.c"
+    "../ctf/q_shared.c"
+    "../client/snd_dma.c"
+    "../client/snd_mem.c"
+    "../client/snd_mix.c"
+    "./q_shwin.c"
+    "../server/sv_ccmds.c"
+    "../server/sv_ents.c"
+    "../server/sv_game.c"
+    "../server/sv_init.c"
+    "../server/sv_main.c"
+    #"../server/sv_move.c"
+    "../server/sv_send.c"
+    "../server/sv_user.c"
+    "../server/sv_world.c"
+    "./rw_dib.c"
+    "./rw_imp.c"
+    "./snd_win.c"
+    "./sys_win.c"
+    "./vid_dll.c"
+    "./vid_menu.c"
+)
+
+set(QUAKE2_HEADER
+    "./"
+    "../ref_gl"
+    "../ref_soft"
+    "../client"
+    "../game"
+    "../qcommon"
+)
+
+include_directories(${QUAKE2_HEADER})
+add_executable(${PROJECT_NAME} ${QUAKE2_SOURCE})
+target_link_libraries(${PROJECT_NAME} gamex86 client server opengl32 winmm ws2_32)
+#gamex86 client server
