@@ -1,18 +1,18 @@
 set(REF_GL_SOURCE
-    "gl_draw.c"
-    "gl_image.c"
-    "gl_light.c"
-    "gl_image.c"
-    "gl_mesh.c"
-    "gl_model.c"
-    "gl_rmain.c"
-    "gl_rmisc.c"
-    "gl_rsurf.c"
-    "gl_warp.c"
-    "../win32/glw_imp.c"
-    "../win32/qgl_win.c"
-    "../win32/q_shwin.c"
-    "ref_gl.def"
+    gl_draw.c
+    gl_image.c
+    gl_light.c
+    gl_image.c
+    gl_mesh.c
+    gl_model.c
+    gl_rmain.c
+    gl_rmisc.c
+    gl_rsurf.c
+    gl_warp.c
+    ../win32/glw_imp.c
+    ../win32/qgl_win.c
+    ../win32/q_shwin.c
+    ref_gl.def
 )
 
 set(REF_GL_HEADER

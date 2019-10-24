@@ -1,26 +1,26 @@
 set(REF_SOFT_SOURCE
-    "r_aclip.c"
-    "r_alias.c"
-    "r_bsp.c"
-    "r_draw.c"
-    "r_edge.c"
-    "r_image.c"
-    "r_light.c"
-    "r_main.c"
-    "r_misc.c"
-    "r_model.c"
-    "r_part.c"
-    "r_poly.c"
-    "r_polyse.c"
-    "r_rast.c"
-    "r_scan.c"
-    "r_sprite.c"
-    "r_surf.c"
-    "../win32/rw_imp.c"
-    "../win32/q_shwin.c"
-    "../win32/rw_dib.c"
-    "../win32/rw_ddraw.c"
-    "ref_soft.def"
+    r_aclip.c
+    r_alias.c
+    r_bsp.c
+    r_draw.c
+    r_edge.c
+    r_image.c
+    r_light.c
+    r_main.c
+    r_misc.c
+    r_model.c
+    r_part.c
+    r_poly.c
+    r_polyse.c
+    r_rast.c
+    r_scan.c
+    r_sprite.c
+    r_surf.c
+    ../win32/rw_imp.c
+    ../win32/q_shwin.c
+    ../win32/rw_dib.c
+    ../win32/rw_ddraw.c
+    ref_soft.def
 )
 
 set(REF_SOFT_HEADER
