@@ -72,7 +72,7 @@ set(QUAKE2_HEADER
 )
 
 include_directories(${QUAKE2_HEADER})
-
+#set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /SUBSYSTEM:WINDOWS /ENTRY:mainCRTStartup")
 add_executable(${PROJECT_NAME} ${QUAKE2_SOURCE} ${CLIENT_SRC} ${SERVER_SRC} ${QCOMMON_SRC})
 target_link_libraries(${PROJECT_NAME} opengl32 winmm ws2_32) #gamex86 client server opengl32 winmm ws2_32)
 #gamex86 client server
