@@ -475,6 +475,8 @@ void *Sys_GetGameAPI (void *parms)
 	char	name[MAX_OSPATH];
 	char	*path;
 	char	cwd[MAX_OSPATH];
+#define _M_IX86
+
 #if defined _M_IX86
 	const char *gamename = "gamex86.dll";
 

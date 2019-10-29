@@ -144,7 +144,7 @@ static void InitSig(void)
 /*
 ** GLimp_SetMode
 */
-int GLimp_SetMode( int *pwidth, int *pheight, int mode, qboolean fullscreen )
+qboolean GLimp_SetMode( int *pwidth, int *pheight, int mode, qboolean fullscreen )
 {
 	int width, height;
 	GLint attribs[32];
@@ -158,7 +158,7 @@ int GLimp_SetMode( int *pwidth, int *pheight, int mode, qboolean fullscreen )
 	if ( !ri.Vid_GetModeInfo( &width, &height, mode ) )
 	{
 		ri.Con_Printf( PRINT_ALL, " invalid mode\n" );
-		return rserr_invalid_mode;
+		return (bool)rserr_invalid_mode;
 	}
 
 	ri.Con_Printf( PRINT_ALL, " %d %d\n", width, height );
@@ -171,14 +171,14 @@ int GLimp_SetMode( int *pwidth, int *pheight, int mode, qboolean fullscreen )
 
 	if ( !GLimp_InitGraphics( fullscreen ) ) {
 		// failed to set a valid mode in windowed mode
-		return rserr_invalid_mode;
+		return (bool)rserr_invalid_mode;
 	}
 /* 	gl_cx = glXCreateContext( x_disp, x_visinfo, 0, True ); */
 
 	// let the sound and input subsystems know about the new window
 	ri.Vid_NewWindow (width, height);
 
-	return rserr_ok;
+	return (bool)rserr_ok;
 }
 
 /*

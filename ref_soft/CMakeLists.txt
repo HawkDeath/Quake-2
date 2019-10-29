@@ -1,3 +1,6 @@
+set(QCOMMON_SRC
+	../game/q_shared.c)
+
 set(REF_SOFT_SOURCE
     r_aclip.c
     r_alias.c
@@ -32,7 +35,7 @@ set(REF_SOFT_HEADER
 )
 
 include_directories(${REF_SOFT_HEADER})
-add_library(ref_soft SHARED ${REF_SOFT_SOURCE})
-target_link_libraries(ref_soft client server ctf gamex86 winmm ws2_32)
+add_library(ref_soft SHARED ${QCOMMON_SRC} ${REF_SOFT_SOURCE})
+target_link_libraries(ref_soft winmm ws2_32)
 
 target_include_directories(ref_soft PUBLIC .)

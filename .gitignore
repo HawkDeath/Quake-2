@@ -1,2 +1,8 @@
 .vscode/
 build/
+out/
+.vs/
+win32/RCa10664
+
+
+CMakeSettings.json

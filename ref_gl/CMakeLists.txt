@@ -1,3 +1,6 @@
+set(QCOMMON_SRC
+	../game/q_shared.c)
+
 set(REF_GL_SOURCE
     gl_draw.c
     gl_image.c
@@ -25,7 +28,7 @@ set(REF_GL_HEADER
 )
 
 include_directories(${REF_GL_HEADER})
-add_library(ref_gl SHARED ${REF_GL_SOURCE})
-target_link_libraries(ref_gl ctf gamex86 opengl32 winmm ws2_32)
+add_library(ref_gl SHARED ${QCOMMON_SRC} ${REF_GL_SOURCE})
+target_link_libraries(ref_gl opengl32 winmm ws2_32)
 
 target_include_directories(ref_gl PUBLIC .)

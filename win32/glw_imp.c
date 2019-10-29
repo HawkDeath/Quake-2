@@ -156,7 +156,7 @@ qboolean VID_CreateWindow( int width, int height, qboolean fullscreen )
 /*
 ** GLimp_SetMode
 */
-rserr_t GLimp_SetMode( int *pwidth, int *pheight, int mode, qboolean fullscreen )
+qboolean GLimp_SetMode( int *pwidth, int *pheight, int mode, qboolean fullscreen )
 {
 	int width, height;
 	const char *win_fs[] = { "W", "FS" };
@@ -168,7 +168,7 @@ rserr_t GLimp_SetMode( int *pwidth, int *pheight, int mode, qboolean fullscreen 
 	if ( !ri.Vid_GetModeInfo( &width, &height, mode ) )
 	{
 		ri.Con_Printf( PRINT_ALL, " invalid mode\n" );
-		return rserr_invalid_mode;
+		return false;
 	}
 
 	ri.Con_Printf( PRINT_ALL, " %d %d %s\n", width, height, win_fs[fullscreen] );
@@ -221,9 +221,9 @@ rserr_t GLimp_SetMode( int *pwidth, int *pheight, int mode, qboolean fullscreen 
 			ri.Con_Printf( PRINT_ALL, "ok\n" );
 
 			if ( !VID_CreateWindow (width, height, true) )
-				return rserr_invalid_mode;
+				return false;
 
-			return rserr_ok;
+			return true;
 		}
 		else
 		{
@@ -260,17 +260,17 @@ rserr_t GLimp_SetMode( int *pwidth, int *pheight, int mode, qboolean fullscreen 
 				*pheight = height;
 				gl_state.fullscreen = false;
 				if ( !VID_CreateWindow (width, height, false) )
-					return rserr_invalid_mode;
-				return rserr_invalid_fullscreen;
+					return false;
+				return false;
 			}
 			else
 			{
 				ri.Con_Printf( PRINT_ALL, " ok\n" );
 				if ( !VID_CreateWindow (width, height, true) )
-					return rserr_invalid_mode;
+					return false;
 
 				gl_state.fullscreen = true;
-				return rserr_ok;
+				return true;
 			}
 		}
 	}
@@ -284,10 +284,10 @@ rserr_t GLimp_SetMode( int *pwidth, int *pheight, int mode, qboolean fullscreen 
 		*pheight = height;
 		gl_state.fullscreen = false;
 		if ( !VID_CreateWindow (width, height, false) )
-			return rserr_invalid_mode;
+			return false;
 	}
 
-	return rserr_ok;
+	return true;
 }
 
 /*
